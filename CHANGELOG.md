@@ -3,7 +3,7 @@
 Todas as mudanças relevantes deste pacote, no formato [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 com versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
-## [Não lançado]
+## [0.8.0] — 2026-11-03
 ### Corrigido
 - `references/engenharia-llm.md`: removidos os IDs de modelo do corpo (`claude-haiku-4-5` etc.; IDs só em `stack-versoes.md`, conferidos na doc oficial em 2026-11-03: `claude-fable-5-1`, `claude-opus-5-5`, `claude-sonnet-5-5`, `claude-haiku-5-5`); "temperatura" só onde o provider aceita.
 - `assets/ci/ai-eval.yml`: sai `pull_request`; gatilho `workflow_dispatch` + tags `hml-*`/`v*`, `concurrency` com cancel-in-progress (piso 27); scripts vendorizados em `vendor/ai-eval/` (o runner não tem a skill instalada).
