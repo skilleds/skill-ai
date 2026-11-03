@@ -166,4 +166,13 @@ echo "== uso errado =="
 checa "adaptador inexistente" 2 "adaptador" node "$RUN" "$SUITE" --adaptador "$TMP/nao-existe.mjs"
 checa "run que nao e run" 2 "nao e um run de eval" node "$GATE" "$SUITE"
 
+echo "== higiene do template de CI e do corpo (piso 27, anexo volátil) =="
+WF="$AQUI/../assets/ci/ai-eval.yml"; REF="$AQUI/../references"
+checa "workflow sem pull_request" 1 "" grep -E '^[[:space:]]*pull_request' "$WF"
+checa "workflow com workflow_dispatch" 0 "" grep -q '^  workflow_dispatch' "$WF"
+checa "workflow com tags hml-*/v*" 0 "" grep -qF "tags: ['hml-*', 'v*']" "$WF"
+checa "workflow com cancel-in-progress" 0 "" grep -q 'cancel-in-progress: true' "$WF"
+checa "workflow nao depende de .claude/skills" 1 "" grep -q '\.claude/skills' "$WF"
+checa "ID de modelo so no anexo volatil" 1 "" bash -c "grep -rEl 'claude-(opus|sonnet|haiku|fable)-[0-9]' '$REF' | grep -v 'stack-versoes.md'"
+
 echo; echo "eval: $ok ok, $fail falha(s)"; [ "$fail" = 0 ]

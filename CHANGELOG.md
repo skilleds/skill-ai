@@ -3,6 +3,15 @@
 Todas as mudanças relevantes deste pacote, no formato [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 com versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [Não lançado]
+### Corrigido
+- `references/engenharia-llm.md`: removidos os IDs de modelo do corpo (`claude-haiku-4-5` etc.; IDs só em `stack-versoes.md`, conferidos na doc oficial em 2026-11-03: `claude-fable-5-1`, `claude-opus-5-5`, `claude-sonnet-5-5`, `claude-haiku-5-5`); "temperatura" só onde o provider aceita.
+- `assets/ci/ai-eval.yml`: sai `pull_request`; gatilho `workflow_dispatch` + tags `hml-*`/`v*`, `concurrency` com cancel-in-progress (piso 27); scripts vendorizados em `vendor/ai-eval/` (o runner não tem a skill instalada).
+- Textos "em todo PR" → por commit local (adaptador falso) e real antes do hml.
+### Adicionado
+- Agents só chamam operação nomeada do ops (piso 24); custo alimenta `archive/custos/` (piso 26); bloco "Herda os pisos 22–29".
+- Testes de higiene do template de CI e de ID de modelo fora do anexo em `scripts/eval.test.sh`.
+
 ## [0.7.0] — 2026-10-15
 ### Alterado
 - Relação com outras skills e `references/evals.md` §5 citam `schematize-regression` como o ciclo geral;

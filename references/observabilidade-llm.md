@@ -65,6 +65,8 @@ prevê:
 
 ## 4. Budget de custo & FinOps (token é custo variável — piso 8 da SKILL)
 
+> O custo medido também alimenta o ledger `<projeto>_archive/custos/` (piso 26, `schematize cost ...`): o budget daqui e o do archive são o mesmo número, não dois.
+
 - **Budget por feature e por tenant**, com alerta de threshold (`schematize-engineering` §33).
   Estourou → alerta + degradação (§5), nunca "descobre na fatura".
 - **Alavancas de custo, em ordem:** (1) **prompt caching** e cache de resultado; (2) **roteamento por

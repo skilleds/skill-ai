@@ -175,7 +175,7 @@ que este reference **defende**:
       default fora de `prd`, **destinatário decidido pelo servidor** (nunca pelo modelo), cap por
       execução — com caso adversarial de "injeção pede encaminhamento" no CI (§4.1).
 - [ ] **Red-team no CI** com gate — concretamente: os casos **adversariais** da suíte de eval
-      rodando em todo PR (`scripts/eval-run.mjs` + `scripts/eval-gate.mjs`, oráculo `nega`, falha
+      rodando por commit no `tools/ci.sh` local com adaptador falso e, com o real, uma vez antes do hml (`scripts/eval-run.mjs` + `scripts/eval-gate.mjs`, oráculo `nega`, falha
       adversarial é **dura**), e o red-team *conduzido* em `/pentest-ai` (OWASP LLM Top 10). Um não
       substitui o outro: a suíte impede a regressão do que já se sabe; o conduzido descobre o que
       ninguém tinha pensado.

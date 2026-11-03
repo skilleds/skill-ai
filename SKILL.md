@@ -51,7 +51,7 @@ O piso 7 desta skill é **"sem eval, não está pronto"** — e até 2026-08-21 
 | `scripts/eval-gate.mjs` | o veredito: `0` passa · `1` **reprova** · `2` inválido. Falha adversarial é **dura**; regressão é medida **na média e por fatia** |
 | `scripts/eval.test.sh` | 19 casos — vazamento de system prompt, injeção indireta, caso 1/3, exceção do adaptador, regressão localizada, suíte que encolheu, suíte sem adversarial |
 | `assets/templates/adaptador.exemplo.mjs` | o adaptador **vive no projeto**, não na skill: é ele que conhece o provider e a chave |
-| `assets/ci/ai-eval.yml` | o workflow — com as duas decisões explícitas (adaptador real vs. falso; job **required**) |
+| `assets/ci/ai-eval.yml` | o workflow — com as duas decisões explícitas (adaptador real vs. falso; scripts vendorizados; gatilho só dispatch + tags hml-*/v*) |
 
 **A fronteira do runner:** ele não conhece provider, não guarda chave e não escolhe modelo. Isso é o
 que permite rodar a suíte offline e trocar de modelo sem tocar na skill — e é o que faz o **teste do
@@ -221,3 +221,5 @@ Independente do reference, estes limites nunca são cruzados:
   deny-by-default da `schematize-data` aplicado ao índice vetorial. Corpus que sai de produção para
   um ambiente de avaliação segue a mesma regra de cópia da `schematize-data` (PII reescrita,
   endereço em rota nula).
+
+Herda os pisos 22–29 da `schematize-engineering` (git como trava de conclusão, deploy só do git, ops é o gate da IA, sem agents inúteis, relatório 30 min/handoff 6 h, CI remoto só antes do hml, microserviço autônomo, build em dev/hml + higiene).

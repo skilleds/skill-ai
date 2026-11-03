@@ -64,7 +64,7 @@ três: injeção direta, injeção **indireta** (payload dentro do documento cla
 por ferramenta.
 
 **O red-team no CI (a promessa de `references/seguranca-llm.md` §8) é este gate**, rodando os casos
-adversariais em todo PR. O red-team *conduzido* — cadeias, criatividade, alvo vivo — continua sendo
+adversariais por commit (local, adaptador falso) e, com o adaptador real, uma vez antes do hml (piso 27). O red-team *conduzido* — cadeias, criatividade, alvo vivo — continua sendo
 `/pentest-ai`. Um não substitui o outro: a suíte impede a regressão do que já se sabe; o conduzido
 descobre o que ninguém tinha pensado.
 

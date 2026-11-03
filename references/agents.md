@@ -27,6 +27,8 @@ servidor **dispõe** (piso 1 da SKILL). O modelo nunca executa nada por conta pr
 - **Tool faz uma coisa, com efeito conhecido.** Prefira tools estreitas e nomeadas (`get_invoice`,
   `create_ticket`) a uma tool genérica `run_sql`/`http_get`/`exec` que entrega o sistema à injeção.
   Tool genérica poderosa = excessive agency por desenho.
+  Sobre infra/dado de hml/prd, a tool do agente é **só uma operação nomeada do `<projeto>_ops`** (tipo + parâmetros,
+  dry-run primeiro): o ops é o gate da IA (piso 24); agente nunca escreve SQL nem muda a VPS direto.
 - **Descrição da tool é parte do prompt** (o modelo escolhe por ela): versionada, testada em eval
   (`evals.md`). Descrição ambígua = tool errada chamada.
 - **Erro de tool é dado, não crash.** Falha/timeout volta ao loop como observação tratável; o

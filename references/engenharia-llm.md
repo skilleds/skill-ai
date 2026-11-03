@@ -40,12 +40,14 @@ da casa; a aplicação **não conhece** o SDK.
 - **VETADO** `anthropic.messages.create(...)` (ou o SDK de qualquer provider) espalhado na regra de
   negócio. Isso é a mesma regra do repositório de dados: a aplicação fala com a **porta**, não com
   o driver.
-- **Config, não código:** modelo, provider, temperatura, teto de tokens, timeout e rota de fallback
+- **Config, não código:** modelo, provider, teto de tokens, timeout e rota de fallback
   vêm de configuração por ambiente. Trocar **o ID do modelo** por outro, ou rotear "barato pro
   fácil, forte pro difícil", é mudança de config + ADR — nunca reescrever a feature.
   > **Não escreva ID de modelo de memória.** `claude-sonnet` (que este arquivo usava como exemplo)
-  > **não é um ID válido** — os IDs correntes do provider default têm a forma `claude-opus-5`,
-  > `claude-sonnet-5`, `claude-haiku-4-5`, e **não levam sufixo de data**. Um ID inválido é `404`
+  > **não é um ID válido** — os IDs correntes do provider default estão **só** em
+  > `references/stack-versoes.md` (anexo volátil, com data de verificação) e **não levam sufixo de data**.
+  > Parâmetros de amostragem (`temperature`, `top_p`, `top_k`) só entram na config onde o provider ainda
+  > os aceita (ver o anexo). Um ID inválido é `404`
   > no primeiro request. Consulte a API de modelos (`GET /v1/models`) ou a doc oficial; a lista
   > muda mais rápido que qualquer arquivo desta skill. *(Este era o piso 5 da própria skill sendo
   > contrariado pelo exemplo dela — ✔ verificado em 2026-08-21.)*
